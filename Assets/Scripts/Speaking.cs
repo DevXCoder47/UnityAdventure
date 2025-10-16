@@ -38,7 +38,6 @@ public class Speaking : MonoBehaviour
         // Активируем движение
         if (movingScript != null)
         {
-            Debug.Log("mooving");
             movingScript.enabled = true;
         }
 
