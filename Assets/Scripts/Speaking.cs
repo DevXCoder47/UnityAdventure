@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Speaking : MonoBehaviour
 {
@@ -37,7 +38,16 @@ public class Speaking : MonoBehaviour
         // Активируем движение
         if (movingScript != null)
         {
+            Debug.Log("mooving");
             movingScript.enabled = true;
         }
+
+        //Проверяем, не является ли сцена эпилогом
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if(currentIndex == 4)
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 }

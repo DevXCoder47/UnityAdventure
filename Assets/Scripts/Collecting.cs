@@ -33,7 +33,7 @@ public class Collecting : MonoBehaviour
 
         if(score == maxScore)
         {
-            LoadNextSceneOrExit();
+            LoadNextScene();
         }
 
     }
@@ -44,7 +44,7 @@ public class Collecting : MonoBehaviour
         hideTextCoroutine = null;
     }
 
-    private void LoadNextSceneOrExit()
+    private void LoadNextScene()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int nextIndex = currentIndex + 1;
@@ -52,14 +52,6 @@ public class Collecting : MonoBehaviour
         if (nextIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextIndex);
-        }
-        else
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
         }
     }
 }
